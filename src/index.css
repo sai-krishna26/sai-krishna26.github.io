@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #0B0B0B;
+    --color-primary: #FF6B35;
+    --color-secondary: #FF8C42;
+    --color-accent: #ffffff;
+    --color-text: #e2e8f0;
+    --color-text-muted: #94a3b8;
+  }
+
+  body {
+    @apply bg-[#0B0B0B] text-slate-200 antialiased font-['Inter'];
+    cursor: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Outfit'] tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600;
+  }
+  .animate-spin-text {
+    animation: spin-text 24s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+  }
+
+  @keyframes spin-text {
+    0%, 12% {
+      transform: translateY(0);
+    }
+    16.66%, 28.66% {
+      transform: translateY(-0.95em);
+    }
+    33.33%, 45.33% {
+      transform: translateY(-1.90em);
+    }
+    50%, 62% {
+      transform: translateY(-2.85em);
+    }
+    66.66%, 78.66% {
+      transform: translateY(-3.80em);
+    }
+    83.33%, 95.33% {
+      transform: translateY(-4.75em);
+    }
+    100% {
+      transform: translateY(-5.70em);
+    }
+  }
+}
+
+/* Lenis smooth scrolling base styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
